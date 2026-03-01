@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funnel Animation Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-dark": "#0a0a0c",
+                        "accent-purple": "#8b5cf6",
+                        "accent-pink": "#ec4899",
+                    },
+                },
+            },
+        }
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #020205 0%, #0a0a12 50%, #020205 100%);
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Scroll Snap Container */
+        .snap-container {
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+
+        .snap-section {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            min-height: 100vh;
+        }
+
+        .funnel-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .funnel-content.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        .funnel-dot>div {
+            opacity: 0.3;
+            transform: scale(1);
+            transition: all 0.3s ease;
+        }
+
+        .funnel-dot.active>div {
+            opacity: 1;
+            transform: scale(1.5);
+            box-shadow: 0 0 20px currentColor;
+        }
+    </style>
+</head>
+
+<body class="overflow-hidden">
+
+    <!-- Scroll Snap Container -->
+    <div class="snap-container">
+
+        <!-- Intro Section -->
+        <section
+            class="snap-section flex items-center justify-center bg-gradient-to-b from-transparent via-primary/5 to-transparent">
+            <div class="text-center px-4">
+                <h2 class="text-white text-4xl md:text-5xl font-black mb-6">Como funciona nosso processo?</h2>
+                <p class="text-slate-400 text-lg max-w-2xl mx-auto mb-8">
+                    Uma jornada estratégica em 4 fases para transformar seu investimento em resultados reais
+                </p>
+                <p class="text-slate-500 text-sm animate-bounce">↓ Role para ver cada fase ↓</p>
+            </div>
+        </section>
+
+        <!-- Phase 1 -->
+        <section class="snap-section flex items-center justify-center px-4">
+            <div class="max-w-4xl w-full">
+                <div class="relative group">
+                    <div
+                        class="absolute -inset-4 bg-gradient-to-r from-primary/30 to-primary/10 rounded-3xl blur-xl opacity-60">
+                    </div>
+
+                    <div
+                        class="relative bg-gradient-to-br from-[#0d1117] to-[#1a1f2e] rounded-2xl p-8 md:p-12 border border-primary/40">
+                        <div class="flex items-start gap-6">
+                            <div class="flex-shrink-0">
+                                <div class="relative">
+                                    <div class="absolute inset-0 bg-primary/30 rounded-full blur-xl animate-pulse">
+                                    </div>
+                                    <div
+                                        class="relative w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center shadow-2xl shadow-primary/50">
+                                        <span class="text-white text-3xl md:text-4xl font-black">01</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span
+                                        class="text-primary text-xs font-bold uppercase tracking-[0.2em] bg-primary/10 px-4 py-2 rounded-full">Fase
+                                        01</span>
+                                    <div class="flex-1 h-[2px] bg-gradient-to-r from-primary/50 to-transparent"></div>
+                                </div>
+                                <h3 class="text-white text-3xl md:text-4xl font-black mb-4">
+                                    Diagnóstico Inicial
+                                </h3>
+                                <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                                    Analisamos sua conta atual, mercado e concorrentes para identificar gargalos e
+                                    oportunidades de crescimento exponencial.
+                                </p>
+
+                                <div class="flex flex-wrap gap-4">
+                                    <div
+                                        class="flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-lg px-5 py-3">
+                                        <span class="material-symbols-outlined text-primary">analytics</span>
+                                        <span class="text-primary font-semibold">Análise Completa</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-lg px-5 py-3">
+                                        <span class="material-symbols-outlined text-primary">timer</span>
+                                        <span class="text-primary font-semibold">2-3 dias</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 2 -->
+        <section class="snap-section flex items-center justify-center px-4">
+            <div class="max-w-4xl w-full">
+                <div class="relative group">
+                    <div
+                        class="absolute -inset-4 bg-gradient-to-r from-accent-purple/30 to-accent-purple/10 rounded-3xl blur-xl opacity-60">
+                    </div>
+
+                    <div
+                        class="relative bg-gradient-to-br from-[#0d1117] to-[#1e1a2e] rounded-2xl p-8 md:p-12 border border-accent-purple/40">
+                        <div class="flex items-start gap-6">
+                            <div class="flex-shrink-0">
+                                <div class="relative">
+                                    <div
+                                        class="absolute inset-0 bg-accent-purple/30 rounded-full blur-xl animate-pulse">
+                                    </div>
+                                    <div
+                                        class="relative w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-accent-purple to-purple-600 rounded-full flex items-center justify-center shadow-2xl shadow-accent-purple/50">
+                                        <span class="text-white text-3xl md:text-4xl font-black">02</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span
+                                        class="text-accent-purple text-xs font-bold uppercase tracking-[0.2em] bg-accent-purple/10 px-4 py-2 rounded-full">Fase
+                                        02</span>
+                                    <div class="flex-1 h-[2px] bg-gradient-to-r from-accent-purple/50 to-transparent">
+                                    </div>
+                                </div>
+                                <h3 class="text-white text-3xl md:text-4xl font-black mb-4">
+                                    Desenho da Estratégia
+                                </h3>
+                                <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                                    Criamos o planejamento de canais, públicos e criativos focados no seu objetivo de
+                                    negócio e maximização de ROI.
+                                </p>
+
+                                <div class="flex flex-wrap gap-4">
+                                    <div
+                                        class="flex items-center gap-2 bg-accent-purple/10 border border-accent-purple/20 rounded-lg px-5 py-3">
+                                        <span class="material-symbols-outlined text-accent-purple">strategy</span>
+                                        <span class="text-accent-purple font-semibold">Plano Personalizado</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center gap-2 bg-accent-purple/10 border border-accent-purple/20 rounded-lg px-5 py-3">
+                                        <span class="material-symbols-outlined text-accent-purple">timer</span>
+                                        <span class="text-accent-purple font-semibold">3-5 dias</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 3 -->
+        <section class="snap-section flex items-center justify-center px-4">
+            <div class="max-w-4xl w-full">
+                <div class="relative group">
+                    <div
+                        class="absolute -inset-4 bg-gradient-to-r from-accent-pink/30 to-accent-pink/10 rounded-3xl blur-xl opacity-60">
+                    </div>
+
+                    <div
+                        class="relative bg-gradient-to-br from-[#0d1117] to-[#2e1a1f] rounded-2xl p-8 md:p-12 border border-accent-pink/40">
+                        <div class="flex items-start gap-6">
+                            <div class="flex-shrink-0">
+                                <div class="relative">
+                                    <div class="absolute inset-0 bg-accent-pink/30 rounded-full blur-xl animate-pulse">
+                                    </div>
+                                    <div
+                                        class="relative w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-accent-pink to-pink-600 rounded-full flex items-center justify-center shadow-2xl shadow-accent-pink/50">
+                                        <span class="text-white text-3xl md:text-4xl font-black">03</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span
+                                        class="text-accent-pink text-xs font-bold uppercase tracking-[0.2em] bg-accent-pink/10 px-4 py-2 rounded-full">Fase
+                                        03</span>
+                                    <div class="flex-1 h-[2px] bg-gradient-to-r from-accent-pink/50 to-transparent">
+                                    </div>
+                                </div>
+                                <h3 class="text-white text-3xl md:text-4xl font-black mb-4">
+                                    Implementação e Setup
+                                </h3>
+                                <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                                    Configuração técnica completa, instalação de pixels, subida das campanhas e
+                                    primeiros testes de escala controlada.
+                                </p>
+
+                                <div class="flex flex-wrap gap-4">
+                                    <div
+                                        class="flex items-center gap-2 bg-accent-pink/10 border border-accent-pink/20 rounded-lg px-5 py-3">
+                                        <span class="material-symbols-outlined text-accent-pink">settings</span>
+                                        <span class="text-accent-pink font-semibold">Setup Completo</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center gap-2 bg-accent-pink/10 border border-accent-pink/20 rounded-lg px-5 py-3">
+                                        <span class="material-symbols-outlined text-accent-pink">timer</span>
+                                        <span class="text-accent-pink font-semibold">5-7 dias</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 4 -->
+        <section class="snap-section flex items-center justify-center px-4">
+            <div class="max-w-4xl w-full">
+                <div class="relative group">
+                    <div
+                        class="absolute -inset-4 bg-gradient-to-r from-white/20 to-white/5 rounded-3xl blur-xl opacity-60">
+                    </div>
+
+                    <div
+                        class="relative bg-gradient-to-br from-[#0d1117] to-[#1a1a1a] rounded-2xl p-8 md:p-12 border border-white/40">
+                        <div class="flex items-start gap-6">
+                            <div class="flex-shrink-0">
+                                <div class="relative">
+                                    <div class="absolute inset-0 bg-white/30 rounded-full blur-xl animate-pulse"></div>
+                                    <div
+                                        class="relative w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-white to-slate-300 rounded-full flex items-center justify-center shadow-2xl shadow-white/50">
+                                        <span class="text-background-dark text-3xl md:text-4xl font-black">04</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex-1">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span
+                                        class="text-white text-xs font-bold uppercase tracking-[0.2em] bg-white/10 px-4 py-2 rounded-full">Fase
+                                        04</span>
+                                    <div class="flex-1 h-[2px] bg-gradient-to-r from-white/50 to-transparent"></div>
+                                </div>
+                                <h3 class="text-white text-3xl md:text-4xl font-black mb-4">
+                                    Otimização e Escala
+                                </h3>
+                                <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                                    Ajustes diários baseados em dados para maximizar o retorno e escalar o volume de
+                                    vendas de forma sustentável.
+                                </p>
+
+                                <div class="flex flex-wrap gap-4">
+                                    <div
+                                        class="flex items-center gap-2 bg-white/10 border border-white/20 rounded-lg px-5 py-3">
+                                        <span class="material-symbols-outlined text-white">trending_up</span>
+                                        <span class="text-white font-semibold">Crescimento Contínuo</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center gap-2 bg-white/10 border border-white/20 rounded-lg px-5 py-3">
+                                        <span class="material-symbols-outlined text-white">all_inclusive</span>
+                                        <span class="text-white font-semibold">Ongoing</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- End Section -->
+        <section
+            class="snap-section flex items-center justify-center bg-gradient-to-b from-transparent via-primary/5 to-transparent">
+            <div class="text-center px-4">
+                <h3 class="text-white text-3xl font-black mb-4">Pronto para começar?</h3>
+                <p class="text-slate-400 mb-8">Entre em contato e transforme seu tráfego pago</p>
+                <a href="https://chk.eduzz.com/E0D62EGD91" target="_blank" rel="noopener noreferrer"
+                    class="inline-block bg-primary hover:bg-primary/80 text-white font-bold px-8 py-4 rounded-xl transition-all">
+                    Falar com Especialista
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Progress Indicator -->
+    <div class="fixed right-8 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col gap-4">
+        <div class="funnel-dot active" data-phase="1">
+            <div class="w-3 h-3 rounded-full bg-primary transition-all duration-300"></div>
+        </div>
+        <div class="funnel-dot" data-phase="2">
+            <div class="w-3 h-3 rounded-full bg-accent-purple transition-all duration-300"></div>
+        </div>
+        <div class="funnel-dot" data-phase="3">
+            <div class="w-3 h-3 rounded-full bg-accent-pink transition-all duration-300"></div>
+        </div>
+        <div class="funnel-dot" data-phase="4">
+            <div class="w-3 h-3 rounded-full bg-white transition-all duration-300"></div>
+        </div>
+    </div>
+
+    <script>
+        // Track scroll position and update dots
+        const snapContainer = document.querySelector('.snap-container');
+        const sections = document.querySelectorAll('.snap-section');
+        const dots = document.querySelectorAll('.funnel-dot');
+
+        snapContainer.addEventListener('scroll', () => {
+            const scrollPosition = snapContainer.scrollTop;
+            const sectionHeight = window.innerHeight;
+
+            // Calculate current section (0-based index)
+            const currentSection = Math.round(scrollPosition / sectionHeight);
+
+            // Update dots (phases are 1-4, sections are 0-5)
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === currentSection - 1) {  // -1 because first section is intro
+                    dot.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

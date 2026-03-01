@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Consultoria de Tráfego Pago | Maximize seu ROI</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#137fec",
+            "background-light": "#f6f7f8",
+            "background-dark": "#0a0a0c",
+            "accent-purple": "#8b5cf6",
+            "accent-pink": "#ec4899",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    .gradient-text {
+      background: linear-gradient(to right, #137fec, #8b5cf6, #ec4899);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .glow-effect {
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    @keyframes pulse-glow {
+
+      0%,
+      100% {
+        opacity: 0.5;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+    }
+
+    .animate-float {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .hover-glow {
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .hover-glow:hover {
+      box-shadow: 0 0 30px rgba(19, 127, 236, 0.4);
+      transform: translateY(-5px) scale(1.02);
+    }
+
+    .image-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+
+    .image-reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes float-slow {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(1deg);
+      }
+    }
+
+    @keyframes float-stats {
+
+      0%,
+      100% {
+        transform: translateY(0px) translateX(0px);
+      }
+
+      50% {
+        transform: translateY(-15px) translateX(5px);
+      }
+    }
+
+    .animate-float-slow {
+      animation: float-slow 6s ease-in-out infinite;
+    }
+
+    .animate-float-stats {
+      animation: float-stats 5s ease-in-out infinite;
+    }
+
+    .neon-button {
+      position: relative;
+      background: #0033ff;
+      color: #fff;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(0, 51, 255, 0.4);
+    }
+
+    .neon-button:hover {
+      box-shadow: 0 0 30px rgba(0, 51, 255, 0.8);
+      transform: scale(1.05);
+    }
+
+    .neon-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: 0.5s;
+    }
+
+    .neon-button:hover::before {
+      left: 100%;
+      transition: 0.5s;
+    }
+
+    .light-move {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .light-move::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, #00f2ff, transparent 30%);
+      animation: rotate-light 4s linear infinite;
+      opacity: 0.4;
+    }
+
+    @keyframes rotate-light {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #020205 0%, #0a0a12 50%, #020205 100%);
+      background-attachment: fixed;
+    }
+
+    #starfield {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .main-grid {
+      background-image: none;
+    }
+
+    .meta-gray-gradient {
+      filter: grayscale(1) contrast(1.2);
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 100%);
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 100%);
+    }
+
+    .silk-fabric {
+      position: relative;
+      z-index: 20;
+    }
+
+    #silk-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .silk-content {
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Grain Effect */
+    .grain::after {
+      content: "";
+      position: fixed;
+      top: -150%;
+      left: -150%;
+      width: 400%;
+      height: 400%;
+      background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+      opacity: 0.04;
+      pointer-events: none;
+      z-index: 9999;
+      animation: noise 8s steps(10) infinite;
+    }
+
+    @keyframes noise {
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      10% {
+        transform: translate(-5%, -10%);
+      }
+
+      20% {
+        transform: translate(-15%, 5%);
+      }
+
+      30% {
+        transform: translate(7%, -25%);
+      }
+
+      40% {
+        transform: translate(-5%, 25%);
+      }
+
+      50% {
+        transform: translate(-15%, 10%);
+      }
+
+      60% {
+        transform: translate(15%, 0);
+      }
+
+      70% {
+        transform: translate(0, 15%);
+      }
+
+      80% {
+        transform: translate(3%, 35%);
+      }
+
+      90% {
+        transform: translate(-10%, 10%);
+      }
+    }
+
+    /* Shimmer Effect */
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-100%) skewX(-15deg);
+      }
+
+      100% {
+        transform: translateX(200%) skewX(-15deg);
+      }
+    }
+
+    .shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shimmer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+      animation: shimmer 3s infinite;
+    }
+  </style>
+</head>
+
+<body
+  class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden main-grid grain">
+  <canvas id="starfield"></canvas>
+
+  <main class="max-w-7xl mx-auto relative px-6 z-10">
+    <!-- HeroSection -->
+    <section
+      class="pt-2 pb-24 lg:pt-4 lg:pb-20 relative overflow-hidden bg-[#050510]/40 rounded-3xl my-12 backdrop-blur-[2px]">
+      <div class="grid lg:grid-cols-2 gap-20 lg:gap-32 items-center">
+        <div class="flex flex-col gap-4 items-start relative z-10 lg:pl-16">
+          <div class="flex flex-col mb-0">
+            <img src="assets/logo_hate_likes.png" alt="I Hate Likes Logo"
+              class="h-56 w-auto object-contain self-start -ml-4">
+          </div>
+          <div class="flex flex-col gap-10">
+            <h1 class="text-white text-3xl md:text-5xl font-black leading-[1.1] tracking-tight">
+              Aprenda a rodar anúncios que trazem <span class="gradient-text">clientes, não só cliques</span>
+            </h1>
+            <p class="text-slate-400 text-base md:text-lg leading-relaxed max-w-xl">
+              Aulas particulares de Meta Ads e/ou Google Ads, aplicadas na sua conta: estrutura, criativos, copy,
+              métricas e otimização.
+            </p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-10 relative z-20">
+            <a class="neon-button flex cursor-pointer items-center justify-center rounded-xl h-16 px-12 text-white text-lg font-black uppercase tracking-wider transition-all"
+              href="javascript:void(0)">
+              <div class="light-move"></div>
+              <span class="relative z-10">Quero destravar meus anúncios</span>
+            </a>
+          </div>
+        </div>
+        <div class="relative hidden lg:flex items-end self-end -mb-20">
+          <div
+            class="absolute -inset-4 bg-gradient-to-tr from-primary/30 to-accent-purple/30 rounded-full blur-3xl opacity-50 animate-pulse">
+          </div>
+          <div class="relative z-10 flex justify-center items-end">
+            <img src="assets/consultant.png" alt="Consultor de Tráfego Pago"
+              class="w-full max-w-[1150px] h-auto drop-shadow-[0_20px_50px_rgba(19,127,236,0.3)] select-none pointer-events-none">
+
+            <!-- Dynamic Floating Badges to complement the expert photo -->
+            <div
+              class="absolute -top-10 -right-10 bg-background-dark/80 border border-white/10 p-4 rounded-2xl backdrop-blur-xl animate-float-stats shadow-2xl">
+              <div class="flex items-center gap-3">
+                <span class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></span>
+                <p class="text-white text-sm font-bold tracking-tight">+ROAS 8.4x</p>
+              </div>
+            </div>
+
+            <div
+              class="absolute bottom-24 -left-10 bg-background-dark/80 border border-white/10 p-4 rounded-2xl backdrop-blur-xl animate-float-stats shadow-2xl"
+              style="animation-delay: -1s;">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-xl">verified</span>
+                <p class="text-white text-sm font-bold tracking-tight">Expert Certificado</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- SectionHeader: Parceiros -->
+    <section class="mt-12 py-24 px-6 relative overflow-hidden" id="platforms-section">
+      <!-- Background Effects -->
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none">
+      </div>
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none">
+      </div>
+
+      <div class="relative z-10 max-w-6xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <p class="text-primary text-sm font-bold uppercase tracking-[0.2em] mb-4">Plataformas Dominadas</p>
+          <h2 class="text-white text-3xl md:text-4xl font-black mb-4">
+            Expertise nas principais <span class="gradient-text">ferramentas do mercado</span>
+          </h2>
+          <p class="text-slate-400 text-base max-w-2xl mx-auto">
+            Certificações e experiência prática nas plataformas que realmente geram resultados
+          </p>
+        </div>
+
+        <!-- Platform Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Google Ads Card -->
+          <div class="group relative">
+            <!-- Animated Border Gradient -->
+            <div
+              class="absolute -inset-[1px] bg-gradient-to-r from-blue-500 via-yellow-500 to-green-500 rounded-2xl opacity-0 group-hover:opacity-100 blur-sm transition-all duration-500">
+            </div>
+
+            <!-- Card Content -->
+            <div
+              class="relative bg-[#0a0a12]/90 backdrop-blur-xl rounded-2xl p-8 border border-white/10 group-hover:border-white/20 transition-all duration-500 h-full flex flex-col items-center justify-center gap-6">
+              <!-- Glow Effect -->
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              </div>
+
+              <div class="relative z-10 flex flex-col items-center gap-6 w-full">
+                <div class="relative">
+                  <img src="assets/google_ads.png" alt="Google Ads"
+                    class="h-32 md:h-40 transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_30px_rgba(66,133,244,0.5)] object-contain">
+                </div>
+
+                <div class="text-center">
+                  <h3 class="text-white font-bold text-xl mb-2">Google Ads</h3>
+                  <p class="text-slate-400 text-sm">Search, Display, Shopping & YouTube</p>
+                </div>
+
+                <!-- Stats Badge -->
+                <div class="flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2">
+                  <span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+                  <span class="text-blue-400 text-xs font-semibold">Parceiro Certificado Google</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Meta Ads Card -->
+          <div class="group relative">
+            <!-- Animated Border Gradient -->
+            <div
+              class="absolute -inset-[1px] bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl opacity-0 group-hover:opacity-100 blur-sm transition-all duration-500">
+            </div>
+
+            <!-- Card Content -->
+            <div
+              class="relative bg-[#0a0a12]/90 backdrop-blur-xl rounded-2xl p-8 border border-white/10 group-hover:border-white/20 transition-all duration-500 h-full flex flex-col items-center justify-center gap-6">
+              <!-- Glow Effect -->
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              </div>
+
+              <div class="relative z-10 flex flex-col items-center gap-6 w-full">
+                <div class="relative">
+                  <img src="assets/meta.png" alt="Meta Business"
+                    class="h-32 md:h-40 transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_30px_rgba(0,149,246,0.5)] object-contain">
+                </div>
+
+                <div class="text-center">
+                  <h3 class="text-white font-bold text-xl mb-2">Meta Ads</h3>
+                  <p class="text-slate-400 text-sm">Facebook, Instagram & WhatsApp</p>
+                </div>
+
+                <!-- Stats Badge -->
+                <div class="flex items-center gap-2 bg-blue-600/10 border border-blue-600/20 rounded-full px-4 py-2">
+                  <span class="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
+                  <span class="text-blue-400 text-xs font-semibold">Certificado Meta Blueprint</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Google Analytics Card -->
+          <div class="group relative">
+            <!-- Animated Border Gradient -->
+            <div
+              class="absolute -inset-[1px] bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 rounded-2xl opacity-0 group-hover:opacity-100 blur-sm transition-all duration-500">
+            </div>
+
+            <!-- Card Content -->
+            <div
+              class="relative bg-[#0a0a12]/90 backdrop-blur-xl rounded-2xl p-8 border border-white/10 group-hover:border-white/20 transition-all duration-500 h-full flex flex-col items-center justify-center gap-6">
+              <!-- Glow Effect -->
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              </div>
+
+              <div class="relative z-10 flex flex-col items-center gap-6 w-full">
+                <div class="relative">
+                  <img src="assets/analytics.png" alt="Google Analytics"
+                    class="h-32 md:h-40 transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_30px_rgba(251,188,5,0.5)] object-contain">
+                </div>
+
+                <div class="text-center">
+                  <h3 class="text-white font-bold text-xl mb-2">Google Analytics</h3>
+                  <p class="text-slate-400 text-sm">GA4, Tag Manager & Data Studio</p>
+                </div>
+
+                <!-- Stats Badge -->
+                <div
+                  class="flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 rounded-full px-4 py-2">
+                  <span class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
+                  <span class="text-orange-400 text-xs font-semibold">Qualificado em Analytics</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom CTA Text -->
+        <div class="text-center mt-16">
+          <p class="text-slate-500 text-sm italic">
+            + Outras ferramentas: TikTok Ads, LinkedIn Ads, Hotjar, Looker Studio
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Stats -->
+    <section class="py-16 px-6">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-white text-2xl md:text-3xl font-bold mb-2">
+          Nossos resultados em números
+        </h2>
+        <p class="text-slate-400 mb-12">Dados reais de campanhas que gerenciamos</p>
+
+        <div class="grid md:grid-cols-3 gap-5">
+          <!-- Card 1 -->
+          <div
+            class="bg-[#1a1a1a]/60 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all">
+            <div class="w-14 h-14 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6">
+              <span class="text-4xl">💰</span>
+            </div>
+
+            <h3 class="text-white text-xl font-bold mb-3">Investidos</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              Mais de R$ 5 milhões gerenciados em campanhas de tráfego pago nas principais plataformas.
+            </p>
+
+            <div class="flex items-center gap-2 text-sm">
+              <span class="text-green-400 font-semibold">+15%</span>
+              <span class="text-slate-500">crescimento mensal</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="bg-[#1a1a1a]/60 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all">
+            <div class="w-14 h-14 bg-purple-500/20 rounded-xl flex items-center justify-center mb-6">
+              <span class="text-4xl">💵</span>
+            </div>
+
+            <h3 class="text-white text-xl font-bold mb-3">Faturamento Gerado</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              Mais de R$ 20 milhões em retorno direto para nossos clientes através de campanhas otimizadas.
+            </p>
+
+            <div class="flex items-center gap-2 text-sm">
+              <span class="text-green-400 font-semibold">+22%</span>
+              <span class="text-slate-500">de ROI médio</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="bg-[#1a1a1a]/60 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all">
+            <div class="w-14 h-14 bg-pink-500/20 rounded-xl flex items-center justify-center mb-6">
+              <span class="text-4xl">👥</span>
+            </div>
+
+            <h3 class="text-white text-xl font-bold mb-3">Empresas Parceiras</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              Mais de 150 empresas confiam em nosso trabalho para escalar suas vendas com tráfego pago.
+            </p>
+
+            <div class="flex items-center gap-2 text-sm text-slate-500">
+              🌍 02 países atendidos
+            </div>
+          </div>
+        </div>
+
+        <p class="text-slate-600 text-xs text-center mt-8">
+          Atualizado em Janeiro/2026
+        </p>
+      </div>
+    </section>
+
+    <!-- Animated Funnel Process Section with Scroll Replacement -->
+    <section class="py-24 px-4 relative overflow-hidden" id="funnel-section">
+      <!-- Background Effects -->
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none">
+      </div>
+
+      <div class="max-w-6xl mx-auto relative">
+        <h2 class="text-white text-3xl md:text-4xl font-black mb-6 text-center">Como funciona nosso processo?</h2>
+        <p class="text-slate-400 text-center mb-20 max-w-2xl mx-auto">
+          Uma jornada estratégica em 4 fases para transformar seu investimento em resultados reais
+        </p>
+
+        <!-- Sticky Funnel Container -->
+        <div class="relative" style="height: 400vh;">
+          <!-- Sticky Card Container -->
+          <div class="sticky top-20 max-w-4xl mx-auto" style="height: 80vh; display: flex; align-items: center;">
+
+            <!-- Single Morphing Card -->
+            <div id="funnel-card" class="w-full relative">
+              <!-- Animated Funnel SVG Background -->
+              <svg
+                class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] pointer-events-none opacity-20 transition-all duration-1000"
+                id="funnel-svg" viewBox="0 0 400 600" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                  <linearGradient id="funnelGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#137fec;stop-opacity:0.8" id="stop1" />
+                    <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:0.6" id="stop2" />
+                    <stop offset="100%" style="stop-color:#ec4899;stop-opacity:0.4" id="stop3" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M 100 0 L 300 0 L 250 150 L 200 300 L 150 450 L 100 600 L 300 600 L 350 450 L 400 300 L 350 150 L 300 0"
+                  fill="url(#funnelGradient)" stroke="none" class="transition-all duration-1000" />
+              </svg>
+
+              <!-- Phase 1 Content -->
+              <div class="funnel-content active" data-phase="1">
+                <div class="relative group">
+                  <div
+                    class="absolute -inset-4 bg-gradient-to-r from-primary/30 to-primary/10 rounded-3xl blur-xl opacity-60">
+                  </div>
+
+                  <div
+                    class="relative bg-gradient-to-br from-[#0d1117] to-[#1a1f2e] rounded-2xl p-8 md:p-12 border border-primary/40 transition-all duration-500">
+                    <div class="flex items-start gap-6">
+                      <div class="flex-shrink-0">
+                        <div class="relative">
+                          <div class="absolute inset-0 bg-primary/30 rounded-full blur-xl animate-pulse"></div>
+                          <div
+                            class="relative w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center shadow-2xl shadow-primary/50">
+                            <span class="text-white text-3xl md:text-4xl font-black">01</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-4">
+                          <span
+                            class="text-primary text-xs font-bold uppercase tracking-[0.2em] bg-primary/10 px-4 py-2 rounded-full">Fase
+                            01</span>
+                          <div class="flex-1 h-[2px] bg-gradient-to-r from-primary/50 to-transparent"></div>
+                        </div>
+                        <h3 class="text-white text-3xl md:text-4xl font-black mb-4">
+                          Diagnóstico Inicial
+                        </h3>
+                        <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                          Analisamos sua conta atual, mercado e concorrentes para identificar gargalos e oportunidades
+                          de crescimento exponencial.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4">
+                          <div
+                            class="flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-lg px-5 py-3">
+                            <span class="material-symbols-outlined text-primary">analytics</span>
+                            <span class="text-primary font-semibold">Análise Completa</span>
+                          </div>
+                          <div
+                            class="flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-lg px-5 py-3">
+                            <span class="material-symbols-outlined text-primary">timer</span>
+                            <span class="text-primary font-semibold">2-3 dias</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Phase 2 Content -->
+              <div class="funnel-content" data-phase="2">
+                <div class="relative group">
+                  <div
+                    class="absolute -inset-4 bg-gradient-to-r from-accent-purple/30 to-accent-purple/10 rounded-3xl blur-xl opacity-60">
+                  </div>
+
+                  <div
+                    class="relative bg-gradient-to-br from-[#0d1117] to-[#1e1a2e] rounded-2xl p-8 md:p-12 border border-accent-purple/40 transition-all duration-500">
+                    <div class="flex items-start gap-6">
+                      <div class="flex-shrink-0">
+                        <div class="relative">
+                          <div class="absolute inset-0 bg-accent-purple/30 rounded-full blur-xl animate-pulse"></div>
+                          <div
+                            class="relative w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-accent-purple to-purple-600 rounded-full flex items-center justify-center shadow-2xl shadow-accent-purple/50">
+                            <span class="text-white text-3xl md:text-4xl font-black">02</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-4">
+                          <span
+                            class="text-accent-purple text-xs font-bold uppercase tracking-[0.2em] bg-accent-purple/10 px-4 py-2 rounded-full">Fase
+                            02</span>
+                          <div class="flex-1 h-[2px] bg-gradient-to-r from-accent-purple/50 to-transparent"></div>
+                        </div>
+                        <h3 class="text-white text-3xl md:text-4xl font-black mb-4">
+                          Desenho da Estratégia
+                        </h3>
+                        <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                          Criamos o planejamento de canais, públicos e criativos focados no seu objetivo de negócio e
+                          maximização de ROI.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4">
+                          <div
+                            class="flex items-center gap-2 bg-accent-purple/10 border border-accent-purple/20 rounded-lg px-5 py-3">
+                            <span class="material-symbols-outlined text-accent-purple">strategy</span>
+                            <span class="text-accent-purple font-semibold">Plano Personalizado</span>
+                          </div>
+                          <div
+                            class="flex items-center gap-2 bg-accent-purple/10 border border-accent-purple/20 rounded-lg px-5 py-3">
+                            <span class="material-symbols-outlined text-accent-purple">timer</span>
+                            <span class="text-accent-purple font-semibold">3-5 dias</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Phase 3 Content -->
+              <div class="funnel-content" data-phase="3">
+                <div class="relative group">
+                  <div
+                    class="absolute -inset-4 bg-gradient-to-r from-accent-pink/30 to-accent-pink/10 rounded-3xl blur-xl opacity-60">
+                  </div>
+
+                  <div
+                    class="relative bg-gradient-to-br from-[#0d1117] to-[#2e1a1f] rounded-2xl p-8 md:p-12 border border-accent-pink/40 transition-all duration-500">
+                    <div class="flex items-start gap-6">
+                      <div class="flex-shrink-0">
+                        <div class="relative">
+                          <div class="absolute inset-0 bg-accent-pink/30 rounded-full blur-xl animate-pulse"></div>
+                          <div
+                            class="relative w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-accent-pink to-pink-600 rounded-full flex items-center justify-center shadow-2xl shadow-accent-pink/50">
+                            <span class="text-white text-3xl md:text-4xl font-black">03</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-4">
+                          <span
+                            class="text-accent-pink text-xs font-bold uppercase tracking-[0.2em] bg-accent-pink/10 px-4 py-2 rounded-full">Fase
+                            03</span>
+                          <div class="flex-1 h-[2px] bg-gradient-to-r from-accent-pink/50 to-transparent"></div>
+                        </div>
+                        <h3 class="text-white text-3xl md:text-4xl font-black mb-4">
+                          Implementação e Setup
+                        </h3>
+                        <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                          Configuração técnica completa, instalação de pixels, subida das campanhas e primeiros testes
+                          de escala controlada.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4">
+                          <div
+                            class="flex items-center gap-2 bg-accent-pink/10 border border-accent-pink/20 rounded-lg px-5 py-3">
+                            <span class="material-symbols-outlined text-accent-pink">settings</span>
+                            <span class="text-accent-pink font-semibold">Setup Completo</span>
+                          </div>
+                          <div
+                            class="flex items-center gap-2 bg-accent-pink/10 border border-accent-pink/20 rounded-lg px-5 py-3">
+                            <span class="material-symbols-outlined text-accent-pink">timer</span>
+                            <span class="text-accent-pink font-semibold">5-7 dias</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Phase 4 Content -->
+              <div class="funnel-content" data-phase="4">
+                <div class="relative group">
+                  <div
+                    class="absolute -inset-4 bg-gradient-to-r from-white/20 to-white/5 rounded-3xl blur-xl opacity-60">
+                  </div>
+
+                  <div
+                    class="relative bg-gradient-to-br from-[#0d1117] to-[#1a1a1a] rounded-2xl p-8 md:p-12 border border-white/40 transition-all duration-500">
+                    <div class="flex items-start gap-6">
+                      <div class="flex-shrink-0">
+                        <div class="relative">
+                          <div class="absolute inset-0 bg-white/30 rounded-full blur-xl animate-pulse"></div>
+                          <div
+                            class="relative w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-white to-slate-300 rounded-full flex items-center justify-center shadow-2xl shadow-white/50">
+                            <span class="text-background-dark text-3xl md:text-4xl font-black">04</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-4">
+                          <span
+                            class="text-white text-xs font-bold uppercase tracking-[0.2em] bg-white/10 px-4 py-2 rounded-full">Fase
+                            04</span>
+                          <div class="flex-1 h-[2px] bg-gradient-to-r from-white/50 to-transparent"></div>
+                        </div>
+                        <h3 class="text-white text-3xl md:text-4xl font-black mb-4">
+                          Otimização e Escala
+                        </h3>
+                        <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                          Ajustes diários baseados em dados para maximizar o retorno e escalar o volume de vendas de
+                          forma sustentável.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4">
+                          <div class="flex items-center gap-2 bg-white/10 border border-white/20 rounded-lg px-5 py-3">
+                            <span class="material-symbols-outlined text-white">trending_up</span>
+                            <span class="text-white font-semibold">Crescimento Contínuo</span>
+                          </div>
+                          <div class="flex items-center gap-2 bg-white/10 border border-white/20 rounded-lg px-5 py-3">
+                            <span class="material-symbols-outlined text-white">all_inclusive</span>
+                            <span class="text-white font-semibold">Ongoing</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Progress Indicator -->
+          <div class="fixed right-8 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col gap-4">
+            <div class="funnel-dot active" data-phase="1">
+              <div class="w-3 h-3 rounded-full bg-primary transition-all duration-300"></div>
+            </div>
+            <div class="funnel-dot" data-phase="2">
+              <div class="w-3 h-3 rounded-full bg-accent-purple transition-all duration-300"></div>
+            </div>
+            <div class="funnel-dot" data-phase="3">
+              <div class="w-3 h-3 rounded-full bg-accent-pink transition-all duration-300"></div>
+            </div>
+            <div class="funnel-dot" data-phase="4">
+              <div class="w-3 h-3 rounded-full bg-white transition-all duration-300"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .funnel-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none;
+      }
+
+      .funnel-content.active {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+      }
+
+      .funnel-dot>div {
+        opacity: 0.3;
+        transform: scale(1);
+      }
+
+      .funnel-dot.active>div {
+        opacity: 1;
+        transform: scale(1.5);
+        box-shadow: 0 0 20px currentColor;
+      }
+    </style>
+
+    <script>
+      // Scroll-based funnel card replacement
+      document.addEventListener('DOMContentLoaded', function () {
+        const funnelSection = document.getElementById('funnel-section');
+        const funnelContents = document.querySelectorAll('.funnel-content');
+        const funnelDots = document.querySelectorAll('.funnel-dot');
+        const funnelSvg = document.getElementById('funnel-svg');
+        const stop1 = document.getElementById('stop1');
+        const stop2 = document.getElementById('stop2');
+        const stop3 = document.getElementById('stop3');
+
+        let currentPhase = 1;
+
+        const phaseColors = {
+          1: { primary: '#137fec', secondary: '#0066cc', tertiary: '#004999' },
+          2: { primary: '#8b5cf6', secondary: '#7c3aed', tertiary: '#6d28d9' },
+          3: { primary: '#ec4899', secondary: '#db2777', tertiary: '#be185d' },
+          4: { primary: '#ffffff', secondary: '#e5e7eb', tertiary: '#9ca3af' }
+        };
+
+        function updateFunnelPhase(phase) {
+          if (phase === currentPhase) return;
+          currentPhase = phase;
+
+          // Update content
+          funnelContents.forEach(content => {
+            content.classList.remove('active');
+            if (parseInt(content.dataset.phase) === phase) {
+              content.classList.add('active');
+            }
+          });
+
+          // Update dots
+          funnelDots.forEach(dot => {
+            dot.classList.remove('active');
+            if (parseInt(dot.dataset.phase) === phase) {
+              dot.classList.add('active');
+            }
+          });
+
+          // Update SVG colors
+          const colors = phaseColors[phase];
+          stop1.style.stopColor = colors.primary;
+          stop2.style.stopColor = colors.secondary;
+          stop3.style.stopColor = colors.tertiary;
+        }
+
+        function handleScroll() {
+          const rect = funnelSection.getBoundingClientRect();
+          const sectionHeight = funnelSection.offsetHeight;
+          const viewportHeight = window.innerHeight;
+
+          // Calculate scroll progress through the section (0 to 1)
+          const scrollProgress = Math.max(0, Math.min(1, -rect.top / (sectionHeight - viewportHeight)));
+
+          // Determine which phase based on scroll progress
+          let newPhase;
+          if (scrollProgress < 0.25) {
+            newPhase = 1;
+          } else if (scrollProgress < 0.5) {
+            newPhase = 2;
+          } else if (scrollProgress < 0.75) {
+            newPhase = 3;
+          } else {
+            newPhase = 4;
+          }
+
+          updateFunnelPhase(newPhase);
+        }
+
+        // Throttle scroll events for performance
+        let ticking = false;
+        window.addEventListener('scroll', function () {
+          if (!ticking) {
+            window.requestAnimationFrame(function () {
+              handleScroll();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
+
+        // Initial check
+        handleScroll();
+      });
+    </script>
+    <div class="relative max-w-4xl mx-auto">
+      <!-- Animated Funnel SVG Background -->
+      <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-10" viewBox="0 0 400 800"
+        preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="funnelGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#137fec;stop-opacity:0.8" />
+            <stop offset="33%" style="stop-color:#8b5cf6;stop-opacity:0.6" />
+            <stop offset="66%" style="stop-color:#ec4899;stop-opacity:0.4" />
+            <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.2" />
+          </linearGradient>
+        </defs>
+        <path d="M 50 0 L 350 0 L 300 200 L 250 400 L 200 600 L 150 800 L 250 800 L 300 600 L 350 400 L 400 200 L 400 0"
+          fill="url(#funnelGradient)" stroke="none" />
+      </svg>
+
+      <!-- Funnel Steps -->
+      <div class="relative space-y-8">
+        <!-- Phase 1 -->
+        <div class="funnel-step opacity-0 translate-y-10" data-phase="1">
+          <div class="relative group">
+            <!-- Glow Effect -->
+            <div
+              class="absolute -inset-4 bg-gradient-to-r from-primary/30 to-primary/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500">
+            </div>
+
+            <!-- Card -->
+            <div
+              class="relative bg-gradient-to-br from-[#0d1117] to-[#1a1f2e] rounded-2xl p-8 md:p-10 border border-primary/30 hover:border-primary/60 transition-all duration-500 hover:scale-[1.02]">
+              <div class="flex items-start gap-6">
+                <!-- Icon Circle -->
+                <div class="flex-shrink-0">
+                  <div class="relative">
+                    <div class="absolute inset-0 bg-primary/20 rounded-full blur-xl animate-pulse"></div>
+                    <div
+                      class="relative w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center shadow-2xl shadow-primary/50">
+                      <span class="text-white text-2xl md:text-3xl font-black">01</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Content -->
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-3">
+                    <span
+                      class="text-primary text-xs font-bold uppercase tracking-[0.2em] bg-primary/10 px-3 py-1 rounded-full">Fase
+                      01</span>
+                    <div class="flex-1 h-[2px] bg-gradient-to-r from-primary/50 to-transparent"></div>
+                  </div>
+                  <h3
+                    class="text-white text-2xl md:text-3xl font-black mb-3 group-hover:text-primary transition-colors">
+                    Diagnóstico Inicial
+                  </h3>
+                  <p class="text-slate-400 text-base leading-relaxed">
+                    Analisamos sua conta atual, mercado e concorrentes para identificar gargalos e oportunidades de
+                    crescimento.
+                  </p>
+
+                  <!-- Stats -->
+                  <div class="mt-6 flex flex-wrap gap-4">
+                    <div class="flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-lg px-4 py-2">
+                      <span class="material-symbols-outlined text-primary text-sm">analytics</span>
+                      <span class="text-primary text-sm font-semibold">Análise Completa</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-lg px-4 py-2">
+                      <span class="material-symbols-outlined text-primary text-sm">timer</span>
+                      <span class="text-primary text-sm font-semibold">2-3 dias</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="funnel-step opacity-0 translate-y-10" data-phase="2">
+          <div class="relative group md:ml-12">
+            <div
+              class="absolute -inset-4 bg-gradient-to-r from-accent-purple/30 to-accent-purple/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500">
+            </div>
+
+            <div
+              class="relative bg-gradient-to-br from-[#0d1117] to-[#1e1a2e] rounded-2xl p-8 md:p-10 border border-accent-purple/30 hover:border-accent-purple/60 transition-all duration-500 hover:scale-[1.02]">
+              <div class="flex items-start gap-6">
+                <div class="flex-shrink-0">
+                  <div class="relative">
+                    <div class="absolute inset-0 bg-accent-purple/20 rounded-full blur-xl animate-pulse"
+                      style="animation-delay: 0.2s;"></div>
+                    <div
+                      class="relative w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-accent-purple to-purple-600 rounded-full flex items-center justify-center shadow-2xl shadow-accent-purple/50">
+                      <span class="text-white text-2xl md:text-3xl font-black">02</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-3">
+                    <span
+                      class="text-accent-purple text-xs font-bold uppercase tracking-[0.2em] bg-accent-purple/10 px-3 py-1 rounded-full">Fase
+                      02</span>
+                    <div class="flex-1 h-[2px] bg-gradient-to-r from-accent-purple/50 to-transparent"></div>
+                  </div>
+                  <h3
+                    class="text-white text-2xl md:text-3xl font-black mb-3 group-hover:text-accent-purple transition-colors">
+                    Desenho da Estratégia
+                  </h3>
+                  <p class="text-slate-400 text-base leading-relaxed">
+                    Criamos o planejamento de canais, públicos e criativos focados no seu objetivo de negócio.
+                  </p>
+
+                  <div class="mt-6 flex flex-wrap gap-4">
+                    <div
+                      class="flex items-center gap-2 bg-accent-purple/10 border border-accent-purple/20 rounded-lg px-4 py-2">
+                      <span class="material-symbols-outlined text-accent-purple text-sm">strategy</span>
+                      <span class="text-accent-purple text-sm font-semibold">Plano Personalizado</span>
+                    </div>
+                    <div
+                      class="flex items-center gap-2 bg-accent-purple/10 border border-accent-purple/20 rounded-lg px-4 py-2">
+                      <span class="material-symbols-outlined text-accent-purple text-sm">timer</span>
+                      <span class="text-accent-purple text-sm font-semibold">3-5 dias</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="funnel-step opacity-0 translate-y-10" data-phase="3">
+          <div class="relative group md:ml-24">
+            <div
+              class="absolute -inset-4 bg-gradient-to-r from-accent-pink/30 to-accent-pink/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500">
+            </div>
+
+            <div
+              class="relative bg-gradient-to-br from-[#0d1117] to-[#2e1a1f] rounded-2xl p-8 md:p-10 border border-accent-pink/30 hover:border-accent-pink/60 transition-all duration-500 hover:scale-[1.02]">
+              <div class="flex items-start gap-6">
+                <div class="flex-shrink-0">
+                  <div class="relative">
+                    <div class="absolute inset-0 bg-accent-pink/20 rounded-full blur-xl animate-pulse"
+                      style="animation-delay: 0.4s;"></div>
+                    <div
+                      class="relative w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-accent-pink to-pink-600 rounded-full flex items-center justify-center shadow-2xl shadow-accent-pink/50">
+                      <span class="text-white text-2xl md:text-3xl font-black">03</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-3">
+                    <span
+                      class="text-accent-pink text-xs font-bold uppercase tracking-[0.2em] bg-accent-pink/10 px-3 py-1 rounded-full">Fase
+                      03</span>
+                    <div class="flex-1 h-[2px] bg-gradient-to-r from-accent-pink/50 to-transparent"></div>
+                  </div>
+                  <h3
+                    class="text-white text-2xl md:text-3xl font-black mb-3 group-hover:text-accent-pink transition-colors">
+                    Implementação e Setup
+                  </h3>
+                  <p class="text-slate-400 text-base leading-relaxed">
+                    Configuração técnica, instalação de pixels, subida das campanhas e primeiros testes de escala.
+                  </p>
+
+                  <div class="mt-6 flex flex-wrap gap-4">
+                    <div
+                      class="flex items-center gap-2 bg-accent-pink/10 border border-accent-pink/20 rounded-lg px-4 py-2">
+                      <span class="material-symbols-outlined text-accent-pink text-sm">settings</span>
+                      <span class="text-accent-pink text-sm font-semibold">Setup Completo</span>
+                    </div>
+                    <div
+                      class="flex items-center gap-2 bg-accent-pink/10 border border-accent-pink/20 rounded-lg px-4 py-2">
+                      <span class="material-symbols-outlined text-accent-pink text-sm">timer</span>
+                      <span class="text-accent-pink text-sm font-semibold">5-7 dias</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="funnel-step opacity-0 translate-y-10" data-phase="4">
+          <div class="relative group md:ml-36">
+            <div
+              class="absolute -inset-4 bg-gradient-to-r from-white/20 to-white/5 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500">
+            </div>
+
+            <div
+              class="relative bg-gradient-to-br from-[#0d1117] to-[#1a1a1a] rounded-2xl p-8 md:p-10 border border-white/30 hover:border-white/60 transition-all duration-500 hover:scale-[1.02]">
+              <div class="flex items-start gap-6">
+                <div class="flex-shrink-0">
+                  <div class="relative">
+                    <div class="absolute inset-0 bg-white/20 rounded-full blur-xl animate-pulse"
+                      style="animation-delay: 0.6s;"></div>
+                    <div
+                      class="relative w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-white to-slate-300 rounded-full flex items-center justify-center shadow-2xl shadow-white/50">
+                      <span class="text-background-dark text-2xl md:text-3xl font-black">04</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-3">
+                    <span
+                      class="text-white text-xs font-bold uppercase tracking-[0.2em] bg-white/10 px-3 py-1 rounded-full">Fase
+                      04</span>
+                    <div class="flex-1 h-[2px] bg-gradient-to-r from-white/50 to-transparent"></div>
+                  </div>
+                  <h3
+                    class="text-white text-2xl md:text-3xl font-black mb-3 group-hover:text-white/80 transition-colors">
+                    Otimização e Escala
+                  </h3>
+                  <p class="text-slate-400 text-base leading-relaxed">
+                    Ajustes diários baseados em dados para maximizar o retorno e escalar o volume de vendas.
+                  </p>
+
+                  <div class="mt-6 flex flex-wrap gap-4">
+                    <div class="flex items-center gap-2 bg-white/10 border border-white/20 rounded-lg px-4 py-2">
+                      <span class="material-symbols-outlined text-white text-sm">trending_up</span>
+                      <span class="text-white text-sm font-semibold">Crescimento Contínuo</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-white/10 border border-white/20 rounded-lg px-4 py-2">
+                      <span class="material-symbols-outlined text-white text-sm">all_inclusive</span>
+                      <span class="text-white text-sm font-semibold">Ongoing</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </section>
+
+    <style>
+      .funnel-step {
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .funnel-step.visible {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+      }
+    </style>
+
+    <script>
+      // Intersection Observer for scroll animations
+      document.addEventListener('DOMContentLoaded', function () {
+        const funnelSteps = document.querySelectorAll('.funnel-step');
+
+        const observerOptions = {
+          threshold: 0.2,
+          rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const phase = entry.target.dataset.phase;
+              setTimeout(() => {
+                entry.target.classList.add('visible');
+              }, (phase - 1) * 150); // Stagger animation
+            }
+          });
+        }, observerOptions);
+
+        funnelSteps.forEach(step => {
+          observer.observe(step);
+        });
+      });
+    </script>
+    <!-- Lead Form Section -->
+    <section class="py-24" id="form">
+      <div
+        class="bg-gradient-to-br from-[#1a232e] via-background-dark to-background-dark rounded-3xl p-8 lg:p-16 border border-white/10 shadow-2xl relative overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-80 h-80 bg-primary/20 rounded-full blur-[120px]"></div>
+        <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-accent-purple/10 rounded-full blur-[120px]"></div>
+        <div class="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-8">
+            <h2 class="text-white text-3xl lg:text-4xl font-black">Pronto para<br /><span class="gradient-text">Domar o
+                Digital?</span></h2>
+            <p class="text-slate-400 text-base leading-relaxed">Nossa equipe de especialistas está pronta para analisar
+              seu cenário e propor um plano de ação personalizado. Sem compromisso, foco total em resultados.</p>
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined">check_circle</span>
+                </div>
+                <span class="text-white font-medium">Análise de conta gratuita</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined">check_circle</span>
+                </div>
+                <span class="text-white font-medium">Escopo de escala personalizado</span>
+              </div>
+            </div>
+          </div>
+          <form class="space-y-4 bg-white/5 p-8 rounded-2xl border border-white/10 backdrop-blur-md">
+            <div class="space-y-1">
+              <input
+                class="w-full bg-white/5 border border-white/10 rounded-xl h-14 px-6 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-500"
+                placeholder="Seu Nome Completo" type="text" />
+            </div>
+            <div class="space-y-1">
+              <input
+                class="w-full bg-white/5 border border-white/10 rounded-xl h-14 px-6 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-500"
+                placeholder="E-mail Estratégico" type="email" />
+            </div>
+            <div class="space-y-1">
+              <select
+                class="w-full bg-white/5 border border-white/10 rounded-xl h-14 px-6 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all appearance-none cursor-pointer">
+                <option class="bg-background-dark">E-commerce / Dropshipping</option>
+                <option class="bg-background-dark">Infoproduto / Lançamentos</option>
+                <option class="bg-background-dark">Negócio Local</option>
+                <option class="bg-background-dark">Serviços / SaaS</option>
+              </select>
+            </div>
+            <button
+              class="w-full flex items-center justify-center rounded-xl h-14 bg-primary text-white font-bold text-lg mt-4 shadow-xl shadow-primary/30 hover:brightness-110 active:scale-95 transition-all"
+              type="button" onclick="alert('Funcionalidade de contato desativada temporariamente.')">
+              Quero meu Diagnóstico
+            </button>
+            <p class="text-[10px] text-slate-500 text-center italic">
+              Garantimos o sigilo total dos seus dados.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- ImageGrid / Social Proof Images -->
+    <section class="p-4 py-24">
+      <h4 class="text-white text-2xl font-bold mb-12 text-center uppercase tracking-widest">Dashboards de Alta
+        Performance</h4>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div
+          class="group relative overflow-hidden rounded-2xl border border-white/10 hover:border-primary/50 transition-all duration-500">
+          <div
+            class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover transition-transform duration-700 group-hover:scale-110"
+            style='background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD5Rc13605eLw9nE6hzOZrKS_EE-ftEErdgXgDlerlnZawxsZMwoljnoYe0NF9tyhyMhzh_fbI4I8V-UAOdQLpBghxHhKN-byxFBuyM3oO-q5ANskAEghUjBqgNoRiSu2lruEtn-z_F7iiD7h8WWwByFo3vpmBhyjEaPMAI1EqfvblqneFQNLfnucx0rXgsclVPnKnaOzk3NZTAe9FYVKt5CU8sxFovfKpQk5n2Jk9en73aPbp7iqNp7ygD6h44QXvYQi5kKpMzIFjM");'>
+          </div>
+          <div
+            class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+          </div>
+          <div
+            class="absolute bottom-6 left-6 right-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+            <span
+              class="bg-primary px-4 py-2 rounded-full text-xs font-bold text-white uppercase tracking-wider shadow-lg">Meta
+              Ads ROI 12x</span>
+          </div>
+        </div>
+        <div
+          class="group relative overflow-hidden rounded-2xl border border-white/10 hover:border-primary/50 transition-all duration-500">
+          <div
+            class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover transition-transform duration-700 group-hover:scale-110"
+            style='background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCHJpfmfrIpu-m-EekaOuCISlc_Q16TdJbDMxjaMLZ-tqXaYrOCkOtBpgn6TTz6TCvjMEXKnJ2ZJ65xJDSwsSP-sr0VgP1xLHS1xcJWtUAu6e3LOxU0k85f3gbn2HBRKhC1TrYA85i_hYvSFfiA0O93caWVS-ToiAlAXzXZh1HHVzK7burhm7tdRjSOprn9jEKXvQnsLLo86eGyVTo3B2wDJExiw9sjJ32fJA2BHi5Ibrv5plC9sGo5qJ9iwGVG5_XhCVB-iREg42dv");'>
+          </div>
+          <div
+            class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+          </div>
+          <div
+            class="absolute bottom-6 left-6 right-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+            <span
+              class="bg-primary px-4 py-2 rounded-full text-xs font-bold text-white uppercase tracking-wider shadow-lg">Google
+              Ads Scale</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="p-8 mt-12 border-t border-white/5 text-center space-y-6">
+      <div class="flex justify-center gap-2 items-center">
+        <span class="material-symbols-outlined text-primary">rocket_launch</span>
+        <span class="text-white font-bold text-lg tracking-tight">ScaleAds</span>
+      </div>
+      <div class="flex justify-center gap-6 text-slate-400 text-sm">
+        <a class="hover:text-primary transition-colors" href="#">Termos</a>
+        <a class="hover:text-primary transition-colors" href="#">Privacidade</a>
+        <a class="hover:text-primary transition-colors" href="#">Instagram</a>
+      </div>
+      <p class="text-slate-600 text-xs">
+        © 2024 ScaleAds Consultoria Ltda. <br />
+        CNPJ: 00.000.000/0001-00
+      </p>
+    </footer>
+  </main>
+  <!-- Floating CTA (Mobile Only) -->
+  <div class="fixed bottom-6 right-6 z-50">
+    <a class="flex items-center justify-center w-14 h-14 bg-primary text-white rounded-full shadow-2xl hover:scale-110 transition-transform cursor-pointer"
+      href="javascript:void(0)">
+      <span class="material-symbols-outlined text-3xl">bolt</span>
+    </a>
+  </div>
+  <script>
+    // Intersection Observer for reveal animations
+    const observerOptions = {
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Starfield & Explosion Animation
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    const starCount = 1000;
+    let width, height;
+    let mouseX = -1000, mouseY = -1000;
+    let isExploded = false;
+    let explosionTriggered = false;
+    let lastScrollTip = 0;
+
+    function initCanvas() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+      createStars();
+    }
+
+    function createStars() {
+      stars = [];
+      for (let i = 0; i < starCount; i++) {
+        stars.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          size: Math.random() * 1.5,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          opacity: Math.random(),
+          originalOpacity: 0
+        });
+        stars[i].originalOpacity = stars[i].opacity;
+      }
+    }
+
+    function explode() {
+      stars.forEach(star => {
+        const angle = Math.random() * Math.PI * 2;
+        const velocity = Math.random() * 8 + 4; // Reduced speed (was 20+10)
+        star.vx = Math.cos(angle) * velocity;
+        star.vy = Math.sin(angle) * velocity;
+      });
+      isExploded = true;
+
+      // Fade out stars after explosion - smoother fade
+      setTimeout(() => {
+        const fadeInterval = setInterval(() => {
+          let allHidden = true;
+          stars.forEach(star => {
+            star.opacity -= 0.02; // Slower fade (was 0.05)
+            if (star.opacity > 0) allHidden = false;
+          });
+          if (allHidden) {
+            clearInterval(fadeInterval);
+          }
+        }, 30);
+      }, 800); // Wait a bit longer before starting fade (was 500)
+    }
+
+    function resetStars() {
+      createStars();
+      isExploded = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+
+      // Trigger at 70% scroll down
+      if (scrollPercent >= 70 && !explosionTriggered) {
+        explode();
+        explosionTriggered = true;
+      }
+      // Reset when scrolling back up past 70%
+      else if (scrollPercent < 70 && explosionTriggered) {
+        resetStars();
+        explosionTriggered = false;
+      }
+    });
+
+    window.addEventListener('resize', initCanvas);
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+
+      stars.forEach(star => {
+        star.x += star.vx;
+        star.y += star.vy;
+
+        // Interaction with mouse (subtle before explosion)
+        if (!isExploded) {
+          let dx = mouseX - star.x;
+          let dy = mouseY - star.y;
+          let distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance < 80) {
+            let angle = Math.atan2(dy, dx);
+            star.x -= Math.cos(angle) * 2;
+            star.y -= Math.sin(angle) * 2;
+          }
+        }
+
+        if (star.opacity > 0) {
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+          ctx.fill();
+        }
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    initCanvas();
+    animate();
+
+    // Silk White Fabric Animation
+    const silkSection = document.getElementById('silk-section');
+    const silkCanvas = document.getElementById('silk-canvas');
+    const sctx = silkCanvas.getContext('2d');
+    let points = [];
+    const spacing = 40;
+    let rows, cols;
+    let sMouseX = -1000, sMouseY = -1000;
+
+    function initSilk() {
+      silkCanvas.width = silkSection.offsetWidth;
+      silkCanvas.height = silkSection.offsetHeight;
+      cols = Math.ceil(silkCanvas.width / spacing) + 1;
+      rows = Math.ceil(silkCanvas.height / spacing) + 1;
+      points = [];
+      for (let y = 0; y < rows; y++) {
+        for (let x = 0; x < cols; x++) {
+          points.push({
+            x: x * spacing,
+            y: y * spacing,
+            ox: x * spacing,
+            oy: y * spacing,
+            vx: 0,
+            vy: 0
+          });
+        }
+      }
+    }
+
+    silkSection.addEventListener('mousemove', (e) => {
+      const rect = silkSection.getBoundingClientRect();
+      sMouseX = e.clientX - rect.left;
+      sMouseY = e.clientY - rect.top;
+    });
+
+    function drawSilk() {
+      sctx.clearRect(0, 0, silkCanvas.width, silkCanvas.height);
+
+      // Update points based on mouse
+      points.forEach(p => {
+        const dx = sMouseX - p.x;
+        const dy = sMouseY - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 200) {
+          const force = (200 - dist) / 200;
+          p.vx += dx * force * 0.02;
+          p.vy += dy * force * 0.02;
+        }
+
+        // Spring back
+        p.vx += (p.ox - p.x) * 0.04;
+        p.vy += (p.oy - p.y) * 0.04;
+
+        // Friction
+        p.vx *= 0.85;
+        p.vy *= 0.85;
+
+        p.x += p.vx;
+        p.y += p.vy;
+      });
+
+      // Subtle localized lighting instead of grid/bubbles
+      const gradient = sctx.createRadialGradient(sMouseX, sMouseY, 0, sMouseX, sMouseY, 250);
+      gradient.addColorStop(0, 'rgba(0, 0, 0, 0.03)');
+      gradient.addColorStop(1, 'transparent');
+      sctx.fillStyle = gradient;
+      sctx.fillRect(0, 0, silkCanvas.width, silkCanvas.height);
+
+      requestAnimationFrame(drawSilk);
+    }
+
+    window.addEventListener('resize', initSilk);
+    initSilk();
+    drawSilk();
+  </script>
+</body>
+
+</html>

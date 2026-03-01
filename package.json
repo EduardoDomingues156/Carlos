@@ -1,0 +1,15 @@
+{
+  "name": "stitch-landing-page",
+  "version": "1.0.0",
+  "description": "Landing page for Consultoria de Tráfego Pago",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx -y serve -l 3000 .",
+    "dev": "npm start",
+    "build": "echo \"Ready for Vercel deployment\""
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
